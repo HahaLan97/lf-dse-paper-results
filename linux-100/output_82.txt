@@ -1,0 +1,52 @@
+Starting iteration 82
+[zes-energy][2024-07-09 14:48:20.299047101] Connecting to zes-server 141.30.52.39:9090
+[zes-energy][2024-07-09 14:48:20.685054837] Connected. Session id: 83.
+[zes-energy][2024-07-09 14:48:20.701281415] Executing: ./CompressFiles
+[zes-energy][2024-07-09 14:48:20.716777999] Waiting for ./CompressFiles (pid: 16468) to exit...
+---- System clock resolution: 1 nsec
+---- Start execution at time Tue Jul  9 14:48:20 2024
+---- plus 709142977 nanoseconds
+Environment 0: ---- Intializing start tag
+Environment 0: ---- Spawning 4 workers.
+=====
+data9.csv
+data6.csv
+data7.csv
+data14.csv
+data13.csv
+data2.csv
+data8.csv
+data10.csv
+data12.csv
+data3.csv
+data5.csv
+data11.csv
+data0.csv
+data4.csv
+data1.csv
+Received task data9.csv
+Received task data6.csv
+Received task data7.csv
+Received task data14.csv
+Received task data13.csv
+Received task data2.csv
+Received task data12.csv
+Received task data10.csv
+Received task data8.csv
+Received task data3.csv
+Received task data5.csv
+Received task data11.csv
+Received task data0.csv
+Received task data1.csv
+Received task data4.csv
+All pointers freed.
+---- Elapsed logical time (in nsec): 0
+---- Elapsed physical time (in nsec): 13,504,566,629
+WARNING: Memory allocated for tokens has not been freed!
+WARNING: Number of unfreed tokens: 3.
+[zes-energy][2024-07-09 14:48:34.229857643] Execution finished. Collecting the power data from 141.30.52.39:9090
+[zes-energy][2024-07-09 14:48:39.647226658] Power profile is saved to profile.csv
+[zes-energy][2024-07-09 14:48:39.753884344] Time (timestamp diff) (s): 13.5277
+[zes-energy][2024-07-09 14:48:39.765688416] Total energy (J): 111.90829016184443
+[zes-energy][2024-07-09 14:48:39.777264990] Average power (W): 8.27253
+Finished iteration 82
