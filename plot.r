@@ -57,11 +57,13 @@ theme(
   text = element_text(size=15),
   legend.position = "top",
   legend.margin = margin(),
-  axis.text.x = element_text(size=10, angle=45, vjust=0.5),
+  axis.text.x = element_text(size=15, angle=35, vjust=0.5),
   strip.text = element_text(size=15, margin = margin(t=1.5, b=1.5)),
   axis.title= element_text(size=15),
   legend.text= element_text(size=15),
 )
+
+#plot(plot)
 
 # save
 ggsave("time.pdf", plot, width=200, height =100, units="mm")
