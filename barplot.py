@@ -10,6 +10,7 @@ def process_csv(file_path):
 
 # List of folders containing CSV files
 folders = ['mocasin', 'linux', 'linux-ondemand', 'linux-schedutil', 'linux-powersaver']
+confs = ['mocasin', 'performance', 'ondemand', 'schedutil', 'powersave']
 
 # Dictionary to store data for each configuration
 data_exec_time = {folder: [] for folder in folders}
@@ -47,15 +48,15 @@ ax1.errorbar(index, averages_exec_time, yerr=[np.array(averages_exec_time) - np.
              fmt='none', color='black', capsize=5)
 
 # Customize the first y-axis
-ax1.set_xlabel('Configurations')
-ax1.set_ylabel('Execution Time (s)')
+# ax1.set_xlabel('Configurations', fontsize=16)
+ax1.set_ylabel('Execution Time (s)', fontsize=16)
 ax1.set_ylim(12, 17)
-ax1.set_title('Execution Time and Total Energy')
+# ax1.set_title('Execution Time and Total Energy', fontsize=20)
 
 # Adding the label for the 5th bar (linux-powersaver) at the upper limit of y-axis
 fifth_bar_height_exec = averages_exec_time[4]
 ax1.text(index[4], 17,
-         f'{fifth_bar_height_exec:.2f}', ha='center', va='bottom', color='black')
+         f'{fifth_bar_height_exec:.2f}', ha='center', va='bottom', fontsize=14, color='black')
 
 # Create a second y-axis for total energy
 ax2 = ax1.twinx()
@@ -66,19 +67,20 @@ ax2.errorbar(index + bar_width, averages_total_energy, yerr=[np.array(averages_t
              fmt='none', color='black', capsize=5)
 
 # Customize the second y-axis
-ax2.set_ylabel('Total Energy (J)')
+ax2.set_ylabel('Total Energy (J)', fontsize=16)
 ax2.set_ylim(80, 130)
 
 # Adding the label for the 5th bar (linux-powersaver) at the upper limit of y-axis for total energy
 fifth_bar_height_energy = averages_total_energy[4]
 ax2.text(index[4] + bar_width, 130,
-         f'{fifth_bar_height_energy:.2f}', ha='center', va='bottom', color='black')
+         f'{fifth_bar_height_energy:.2f}', ha='center', va='bottom', fontsize=14, color='black')
 
 # Rotate x-axis labels if they're too long
-plt.xticks(index + bar_width / 2, folders, rotation=45, ha='right')
+plt.xticks(index + bar_width / 2, confs, rotation=45, ha='right')
+ax1.tick_params(axis='x', labelsize=16)
 
 # Adding legends
-fig.legend(loc='upper left', bbox_to_anchor=(0.1, 0.9), bbox_transform=ax1.transAxes)
+fig.legend(loc='upper left', bbox_to_anchor=(0.1, 0.9), bbox_transform=ax1.transAxes, fontsize=14)
 
 plt.tight_layout()
 
