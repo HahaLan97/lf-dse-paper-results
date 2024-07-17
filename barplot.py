@@ -9,7 +9,7 @@ def process_csv(file_path):
     return df.iloc[:, 0].tolist(), df.iloc[:, 1].tolist()  # Return the first and second columns as lists
 
 # List of folders containing CSV files
-folders = ['mocasin-100', 'linux-100', 'linux-ondemand', 'linux-schedutil', 'linux-powersaver']
+folders = ['mocasin', 'linux', 'linux-ondemand', 'linux-schedutil', 'linux-powersaver']
 
 # Dictionary to store data for each configuration
 data_exec_time = {folder: [] for folder in folders}
