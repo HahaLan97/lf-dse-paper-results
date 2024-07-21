@@ -44,12 +44,12 @@ index = np.arange(len(folders))
 bars_exec_time = ax1.bar(index, averages_exec_time, bar_width, color='#83c5be', label='Average Execution Time')
 
 # Add error bars for min and max of execution time
-ax1.errorbar(index, averages_exec_time, yerr=[np.array(averages_exec_time) - np.array(mins_exec_time), np.array(maxs_exec_time) - np.array(averages_exec_time)], 
-             fmt='none', color='black', capsize=5)
+# ax1.errorbar(index, averages_exec_time, yerr=[np.array(averages_exec_time) - np.array(mins_exec_time), np.array(maxs_exec_time) - np.array(averages_exec_time)], 
+#              fmt='none', color='black', capsize=5)
 
 # Customize the first y-axis
-# ax1.set_xlabel('Configurations', fontsize=16)
-ax1.set_ylabel('Execution Time (s)', fontsize=16)
+ax1.set_xlabel('Configurations', fontsize=18)
+ax1.set_ylabel('Execution Time (s)', fontsize=18)
 ax1.set_ylim(12, 17)
 # ax1.set_title('Execution Time and Total Energy', fontsize=20)
 
@@ -63,12 +63,22 @@ ax2 = ax1.twinx()
 bars_total_energy = ax2.bar(index + bar_width, averages_total_energy, bar_width, color='#ffadad', label='Average Total Energy')
 
 # Add error bars for min and max of total energy
-ax2.errorbar(index + bar_width, averages_total_energy, yerr=[np.array(averages_total_energy) - np.array(mins_total_energy), np.array(maxs_total_energy) - np.array(averages_total_energy)], 
-             fmt='none', color='black', capsize=5)
+# ax2.errorbar(index + bar_width, averages_total_energy, yerr=[np.array(averages_total_energy) - np.array(mins_total_energy), np.array(maxs_total_energy) - np.array(averages_total_energy)], 
+#              fmt='none', color='black', capsize=5)
 
 # Customize the second y-axis
 ax2.set_ylabel('Total Energy (J)', fontsize=16)
 ax2.set_ylim(80, 130)
+
+# Adding the label for each bar (execution time) except for the fifth bar
+for i, bar in enumerate(bars_exec_time):
+    if i != 4:  # Skip the fifth bar
+        height = bar.get_height()
+        ax1.text(bar.get_x() + bar.get_width() / 2, height, f'{height:.2f}', ha='center', va='bottom', fontsize=14, color='black')
+for i, bar in enumerate(bars_total_energy):
+    if i != 4:  # Skip the fifth bar
+        height = bar.get_height()
+        ax2.text(bar.get_x() + bar.get_width() / 2, height, f'{height:.2f}', ha='center', va='bottom', fontsize=14, color='black')
 
 # Adding the label for the 5th bar (linux-powersaver) at the upper limit of y-axis for total energy
 fifth_bar_height_energy = averages_total_energy[4]
